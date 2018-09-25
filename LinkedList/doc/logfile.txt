@@ -1,0 +1,48 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files\Java\jdk1.8.0_101\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-private
+-tag
+pre:a:Precondition:
+-tag
+post:a:Postcondition:
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.8
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-core.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-device.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-gpio-extension.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-service.jar;C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList
+-d
+C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\LinkedList.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\LinkedList.java...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_101
+Building tree for all the packages and classes...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\LinkedList.html...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\LinkedList.Node.html...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\package-frame.html...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\package-summary.html...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\allclasses-frame.html...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\allclasses-noframe.html...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\index.html...
+Generating C:\Users\spwalz\Desktop\GitHub- SE\DataStruct\LinkedList\doc\stylesheet.css...
+Note: Custom tags that could override future standard tags:  @pre, @post. To avoid potential overrides, use at least one period character (.) in custom tag names.
+Note: Custom tags that were not seen:  @pre, @post
