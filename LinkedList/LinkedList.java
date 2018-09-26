@@ -11,6 +11,7 @@ public class LinkedList
     private Node first;
     //needs to access to all nods- so we need an inner class
     
+    //can get at public data from node- but cannot acess this outside this class
     class Node
     {
         // Old School 
@@ -20,7 +21,7 @@ public class LinkedList
         public Node next; 
     }
     
-
+    
     /**
      * Default constructor for objects of class LinkedList
      */
@@ -63,6 +64,67 @@ public class LinkedList
         first= first.next;
         return temp; 
     }
+    
+    public ListIterator listIterator()
+    {
+       return new LinkedListIterator();  
+    }
+        
+    
+    class LinkedListIterator implements ListIterator //could implement iterator interface- but has extra methods we don't need
+    {
+        private Node position; 
+        private Node previous;  //this is so we can remove 
+        private boolean isAfterNext; 
+        
+        public LinkedListIterator()
+        {
+            position= null; 
+            previous= null;
+            isAfterNext= false;  
+        }
+        
+        /**
+        * Moves the iterator past the next element 
+        * @return the traversed element 
+        */
+        public Object next()
+        {
+            if (!hasNext()) {throw new NoSuchElementException();}
+            
+            previous= position; //purly so that I can remove item
+            isAfterNext= true; 
+            
+            if (position == null)//which means we would be at the very end or just started it
+            {
+                position= first; //just adress/references to objects
+            }
+            else
+            {
+                position= position.next;
+            }
+                        
+            return position.data; 
+        }
+        
+        /**
+        *Tests if there is a next element
+        * @return true if there is a next element 
+        */
+        public boolean hasNext()
+        {
+            if (position ==  null)
+            {
+                return first!= null; 
+            }
+            else
+            {
+                return position.next != null; 
+            }
+        }
+        
+    }
+        
 
 }
 
