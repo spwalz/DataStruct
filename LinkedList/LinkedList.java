@@ -1,4 +1,6 @@
 import java.util.NoSuchElementException; 
+import java.util.*; 
+//import java.util.IllegalStateException; 
 
 /**
  * Just keeps track of stuff- not the actual data 
@@ -122,6 +124,53 @@ public class LinkedList
                 return position.next != null; 
             }
         }
+        
+        /**
+         * Adds an element before the interator position
+         * and moves the iterator past the inserted element
+         * @param element the element to add
+         */
+        public void add(Object element)
+        {
+            if(position == null)
+            {
+                addFirst(element); 
+                position=first; 
+            }
+            else
+            {
+                Node newNode = new Node();
+                
+                newNode.data= element; 
+                newNode.next= position.next;
+                position.next= newNode;
+                position= newNode; //moved forward one
+            }
+            
+            isAfterNext= false; 
+        }
+        
+        /**
+         * Removes the last traversed element. this method may 
+         * only be called after moving forward
+         */
+        public void remove()
+        {
+            if (!isAfterNext){throw new IllegalStateException();}
+            
+            if (position == first)
+            {
+                removeFirst(); 
+            }
+            else
+            {
+                previous.next= position.next; 
+                
+            }
+            position= previous; 
+            isAfterNext= false; 
+        }
+        
         
     }
         
