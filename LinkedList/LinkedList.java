@@ -11,6 +11,7 @@ public class LinkedList
 {
     //Single linked list
     private Node first;
+    public int currentsize; 
     //needs to access to all nods- so we need an inner class
     
     //can get at public data from node- but cannot acess this outside this class
@@ -21,9 +22,9 @@ public class LinkedList
         //cast to type the object as we remove 
         public Object data;
         public Node next; 
+        
     }
-    
-    
+        
     /**
      * Default constructor for objects of class LinkedList
      */
@@ -43,8 +44,20 @@ public class LinkedList
         newNode.data= element; //the data will point to the object
         newNode.next= first; 
         first= newNode; 
+        currentsize++; 
     }
     
+    /**
+     * 
+     */
+    public void faultyAddFirst(Object element) 
+    {
+        Node newNode = new Node();
+        first = newNode; 
+        newNode.data = element; 
+        newNode.next = first; 
+    }
+       
     /**
      * Retruns the first element of the LL
      * @return the first element as object
@@ -64,14 +77,69 @@ public class LinkedList
         if (first== null) {throw new NoSuchElementException();}
         Object temp= first.data;
         first= first.next;
+        currentsize--;
         return temp; 
+    }
+    
+    /**
+     * Reverses the List linkes
+     * e16.1
+     */
+    public void reverse()
+    {
+       if (first== null) return; 
+       
+       Node previous = first; 
+       Node current = first.next; 
+       first.next = null; 
+       while (current != null) 
+       {
+           Node next = current.next; 
+           current.next = previous; 
+           previous = current; 
+           current = next; 
+        }
+       first = previous; 
+    }
+    
+    /**
+     * 
+     */
+    public int size() 
+    {
+        /*
+        if (first== null) return;  //without this would throw an error if inputting an empty list
+        int count= 0; 
+        
+        Node temp = first; 
+        
+        while(temp!= null)
+        {
+            count++;
+            temp=temp.next;
+        }
+        
+        return count; */
+        return currentsize; 
     }
     
     public ListIterator listIterator()
     {
        return new LinkedListIterator();  
     }
-        
+    
+    public String toString() 
+    {
+        ListIterator iter = this.listIterator(); 
+        String returnString = ""; 
+        while (iter.hasNext()) 
+        {
+            returnString += iter.next() + " ";
+        }
+        return returnString; 
+    }
+    
+   
     
     class LinkedListIterator implements ListIterator //could implement iterator interface- but has extra methods we don't need
     {
@@ -146,7 +214,7 @@ public class LinkedList
                 position.next= newNode;
                 position= newNode; //moved forward one
             }
-            
+            currentsize++; 
             isAfterNext= false; 
         }
         
@@ -168,6 +236,7 @@ public class LinkedList
                 
             }
             position= previous; 
+            currentsize--; 
             isAfterNext= false; 
         }
         

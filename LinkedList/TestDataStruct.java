@@ -17,6 +17,7 @@ public class TestDataStruct
         LinkedList lister= new LinkedList(); 
         String word= "New"; 
         lister.addFirst(word);
+        lister.addFirst(new String ("wahhh"));
         lister.addFirst(new String("Two")); //linked list is now [two] [new]
         
         
@@ -26,7 +27,31 @@ public class TestDataStruct
         
         //OLD school- had to cast the object first
         String word2= (String) lister.getFirst();
-        System.out.println(word2); 
+        //System.out.println(word2); 
+        
+        //lister.reverse(lister);
+        
+        System.out.print(lister);
+        
+        //String tester1= "Tom"; 
+        //lister.faultyAddFirst(tester1);
+        
+        //String tester2= "Bob"; 
+        //lister.faultyAddFirst(tester2);
+        
+        //lister.removeFirst();
+        
+        System.out.print(lister);
+        
+        System.out.println(lister.size()); 
+        
+        //if (tester1.equals(lister.getFirst()))
+            //System.out.println("It works");
+        //else
+            //System.out.println("It doesn't work- FAIL\n");
+        
+        
+              
         
         
     }
