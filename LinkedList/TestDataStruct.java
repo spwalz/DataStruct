@@ -20,18 +20,23 @@ public class TestDataStruct
         lister.addFirst(new String ("wahhh"));
         lister.addFirst(new String("Two")); //linked list is now [two] [new]
         
-        
+        System.out.println(lister);
+        lister.setNode(2, "Three");
+        System.out.println(lister);
+        System.out.println(lister.contains("Three"));
+        //System.out.println(lister);
+        System.out.println(lister.contains("Dog"));
         
         
         //String word2= lister.getFirst(); //this returns as object- but word 2 is not an object 
         
         //OLD school- had to cast the object first
-        String word2= (String) lister.getFirst();
+        //String word2= (String) lister.getFirst();
         //System.out.println(word2); 
         
         //lister.reverse(lister);
         
-        System.out.print(lister);
+        //System.out.print(lister);
         
         //String tester1= "Tom"; 
         //lister.faultyAddFirst(tester1);
@@ -41,9 +46,9 @@ public class TestDataStruct
         
         //lister.removeFirst();
         
-        System.out.print(lister);
+        //System.out.print(lister);
         
-        System.out.println(lister.size()); 
+        //System.out.println(lister.size()); 
         
         //if (tester1.equals(lister.getFirst()))
             //System.out.println("It works");

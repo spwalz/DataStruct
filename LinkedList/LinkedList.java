@@ -23,6 +23,7 @@ public class LinkedList
         public Object data;
         public Node next; 
         
+        
     }
         
     /**
@@ -32,7 +33,81 @@ public class LinkedList
     {
         // initialise instance variables
         first= null; 
+        currentsize=0;
     }
+    
+    
+    
+    /**
+     * P16.1 -->pg 761 part 1
+     * Get method- gets the element at that integer
+     * @param the integer number of the one you want
+     * @return the data
+     */
+    public Object get(int n)
+    {
+       if (first== null) {throw new NoSuchElementException();}
+       if (n> currentsize) {throw new NoSuchElementException();}
+       
+       Node temp= this.getNode(n);
+       return temp.data;  
+    }
+    
+    /**
+     * P16.1 -->pg 761 part 2- helper method
+     * Get method- gets the element at that integer
+     * @param the integer number of the one you want
+     * @return the data
+     */
+    private Node getNode(int n)
+    {
+       if (first== null) {throw new NoSuchElementException();}
+       if (n> currentsize) {throw new NoSuchElementException();}
+       
+       Node current = first; 
+       int count=0;
+       while (count!=n ) 
+       {
+           current= current.next; 
+           count++;
+        }
+       return current;  
+    }
+    
+    /**
+     * P16.1 -->pg 761 part 2
+     * Set method- changes the data of the node
+     * @param the integer number of the one you want, and the data you want to add
+     * @return 
+     */
+    public void setNode(int n, Object newElement)
+    {
+       Node working= getNode(n);
+       working.data= newElement;
+    }
+    
+     /**
+     * P16.4 -->pg 761 
+     * Contains method- cehceks wheter it is there- no iterator
+     */
+    public boolean contains(Object element)
+    {
+       Node current = first; 
+       int count=0;
+       while (count!=currentsize) 
+       {
+           if (current.data.equals(element))
+           {
+               return true;
+           }
+           
+           current= current.next; 
+           count++;
+        }
+        
+       return false;
+    }
+    
     
     /**
      * Adds an element to the front of the LL
